@@ -22,30 +22,49 @@ const App = () => {
 
   React.useEffect(()=> {
     console.log("useEffect")
-    const getAllData = async () => {
-      try {
+    getTasks()
+  },[])
+
+  const getTasks = async () => {
+    try {
       const response = await axios.get('https://agnes-task-list-api.onrender.com/tasks')
-      console.log(response)
-    } catch (err) {
-      console.log(err.message)
+      setTask(response.data)
+    } catch (error) {
+      console.log(error)
     }
   }
-    return getAllData
-  },[])
 
   const toggleTask = (id) => {
     setTask(prevTask => {
       const updatedtask = prevTask.map(task => {
         return task.id === id ? {...task, isComplete: !task.isComplete} : task
       })
+    console.log(updatedtask, "update")
     return updatedtask;
     })
+    // const updatedtask = tasks.map(task => {
+    //     return task.id === id ? {...task, isComplete: !task.isComplete} : task
+    //   })  
+    // console.log(updatedtask)
   };
 
+  const markComplete = (id) => {
+    axios.patch(`https://agnes-task-list-api.onrender.com/tasks/${id}/mark_complete`).then(response => {
+      setTask(prevTask => {
+        const updateTask = prevTask.map(task => {
+          return task.id === id ? response.data: task
+        })
+        return updateTask
+      })
+    })
+  }
+
   const removeTask = (id) => {
-    setTask(prevTask => {
-      const updatedtask = prevTask.filter(task => task.id !==id);
-      return updatedtask;
+    axios.delete(`https://agnes-task-list-api.onrender.com/tasks/${id}`).then(() => {
+      setTask(prevTask => {
+        const updatedtask = prevTask.filter(task => task.id !==id);
+        return updatedtask;
+      })
     })
   }
 
