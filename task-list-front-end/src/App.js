@@ -34,26 +34,14 @@ const App = () => {
     }
   }
 
-  const toggleTask = (id) => {
-    setTask(prevTask => {
-      const updatedtask = prevTask.map(task => {
-        return task.id === id ? {...task, isComplete: !task.isComplete} : task
-      })
-    console.log(updatedtask, "update")
-    return updatedtask;
-    })
-    // const updatedtask = tasks.map(task => {
-    //     return task.id === id ? {...task, isComplete: !task.isComplete} : task
-    //   })  
-    // console.log(updatedtask)
-  };
-
-  const markComplete = (id) => {
-    axios.patch(`https://agnes-task-list-api.onrender.com/tasks/${id}/mark_complete`).then(response => {
+  const toggleTask = (id, isComplete) => {
+    const mark = isComplete ? 'mark_incomplete' : 'mark_complete'
+    axios.patch(`https://agnes-task-list-api.onrender.com/tasks/${id}/${mark}`).then(response => {
       setTask(prevTask => {
         const updateTask = prevTask.map(task => {
-          return task.id === id ? response.data: task
+          return task.id === id ? response.data.task: task
         })
+        console.log(updateTask, "updateTask")
         return updateTask
       })
     })
