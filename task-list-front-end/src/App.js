@@ -2,6 +2,7 @@ import React from 'react';
 import TaskList from './components/TaskList.js';
 import './App.css';
 import axios from 'axios'
+import TaskForm from './components/TaskForm.js';
 
 const TASKS = [
   {
@@ -54,6 +55,7 @@ const App = () => {
         <h1>Task List</h1>
       </header>
       <main>
+        <TaskForm></TaskForm>
         <div>{<TaskList tasks={tasks} toggleTask = {toggleTask} removeTask = {removeTask}/>}</div>
       </main>
     </div>
