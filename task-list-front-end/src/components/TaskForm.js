@@ -1,14 +1,24 @@
 import React from 'react'
 
-const TaskForm = () => {
+const TaskForm = (props) => {
     const[formFields, setFormFields] = React.useState({
         title:'',
+        description: '',
     });
 
-    const handleChange = evt => setFormFields({...formFields,[evt.target.name]: evt.target.value});
+    const handleChange = event => setFormFields({...formFields,[event.target.name]: event.target.value});
+
+    const onFormSubmit = event => {
+        event.preventDefault();
+        props.addTaskCallBack(formFields)
+        setFormFields({
+            title:'',
+            description: '',
+        })
+    }
 
     return (
-        <form>
+        <form onSubmit={onFormSubmit}>
             <section>
                 <h2>Add a New Task!</h2>
                 <div className='new_task_fields'>
@@ -18,9 +28,15 @@ const TaskForm = () => {
                             name='title'
                             value={formFields.title}
                             onChange={handleChange}
-                            ></input>
+                        />
+                        <label htmlFor='desctipion'>Description</label>
+                        <input
+                            name="description"
+                            value={formFields.description}
+                            onChange={handleChange}
+                        />
                     </div>
-                    <button className='button submit_new_task'>Submit</button>
+                    <input type="submit" value="Submit"/>
                 </div>
             </section>
         </form>

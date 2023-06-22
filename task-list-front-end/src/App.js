@@ -4,21 +4,9 @@ import './App.css';
 import axios from 'axios'
 import TaskForm from './components/TaskForm.js';
 
-const TASKS = [
-  {
-    id: 1,
-    title: 'Mow the lawn',
-    isComplete: false,
-  },
-  {
-    id: 2,
-    title: 'Cook Pasta',
-    isComplete: true,
-  },
-];
 
 const App = () => {
-  const [tasks, setTask] = React.useState(TASKS);
+  const [tasks, setTask] = React.useState([]);
 
   React.useEffect(()=> {
     console.log("useEffect")
@@ -41,7 +29,6 @@ const App = () => {
         const updateTask = prevTask.map(task => {
           return task.id === id ? response.data.task: task
         })
-        console.log(updateTask, "updateTask")
         return updateTask
       })
     })
@@ -56,13 +43,27 @@ const App = () => {
     })
   }
 
+  const addTask = (newTaskData) => {
+    axios.post('https://agnes-task-list-api.onrender.com/tasks', newTaskData)
+    .then(response => {
+      const allTasks = [...tasks]
+      allTasks.push({
+        id: response.data.task.id,
+        description: response.data.task.description,
+        is_complete: response.data.task.is_complete,
+        title: response.data.task.title,
+      })
+    setTask(allTasks)
+    })
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Task List</h1>
       </header>
       <main>
-        <TaskForm></TaskForm>
+        <TaskForm addTaskCallBack = {addTask}></TaskForm>
         <div>{<TaskList tasks={tasks} toggleTask = {toggleTask} removeTask = {removeTask}/>}</div>
       </main>
     </div>
