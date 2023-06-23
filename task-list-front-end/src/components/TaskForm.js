@@ -1,4 +1,5 @@
 import React from 'react'
+import './TaskForm.css'
 
 const TaskForm = (props) => {
     const[formFields, setFormFields] = React.useState({
@@ -18,11 +19,11 @@ const TaskForm = (props) => {
     }
 
     return (
-        <form onSubmit={onFormSubmit}>
+        <form className='add_new_task' onSubmit={onFormSubmit}>
             <section>
                 <h2>Add a New Task!</h2>
-                <div className='new_task_fields'>
-                    <div>
+                <div className='new_task_fields_input'>
+                    <div className = 'new_task_fields'>
                         <label htmlFor='title'>Task </label>
                         <input
                             name='title'

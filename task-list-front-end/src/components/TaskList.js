@@ -18,7 +18,7 @@ const TaskList = ({ tasks, toggleTask, removeTask}) => {
     );
     });
     };
-    return <ul className="tasks__list no-bullet">{getTaskListJSX(tasks)}</ul>;
+    return <ul className="tasks__list">{getTaskListJSX(tasks)}</ul>;
 };
 
 TaskList.propTypes = {

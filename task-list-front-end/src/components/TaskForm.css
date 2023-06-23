@@ -1,0 +1,13 @@
+.add_new_task {
+    display: flex;
+    justify-content: left;
+    width: 30vh;
+    height: 50vh;
+    margin-left: 10vh;
+}
+
+.new_task_fields, label {
+    padding: 2vh;
+    gap: 5vh;
+    margin: auto;
+}
