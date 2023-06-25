@@ -15,7 +15,7 @@ const App = () => {
 
   const getTasks = async () => {
     try {
-      const response = await axios.get('https://agnes-task-list-api.onrender.com/tasks')
+      const response = await axios.get('https://task-list-api-lnqs.onrender.com/tasks')
       setTask(response.data)
     } catch (error) {
       console.log(error)
@@ -24,7 +24,7 @@ const App = () => {
 
   const toggleTask = (id, isComplete) => {
     const mark = isComplete ? 'mark_incomplete' : 'mark_complete'
-    axios.patch(`https://agnes-task-list-api.onrender.com/tasks/${id}/${mark}`).then(response => {
+    axios.patch(`https://task-list-api-lnqs.onrender.com/tasks/${id}/${mark}`).then(response => {
       setTask(prevTask => {
         const updateTask = prevTask.map(task => {
           return task.id === id ? response.data.task: task
@@ -35,7 +35,7 @@ const App = () => {
   }
 
   const removeTask = (id) => {
-    axios.delete(`https://agnes-task-list-api.onrender.com/tasks/${id}`).then(() => {
+    axios.delete(`https://task-list-api-lnqs.onrender.com/tasks/${id}`).then(() => {
       setTask(prevTask => {
         const updatedtask = prevTask.filter(task => task.id !==id);
         return updatedtask;
@@ -44,7 +44,7 @@ const App = () => {
   }
 
   const addTask = (newTaskData) => {
-    axios.post('https://agnes-task-list-api.onrender.com/tasks', newTaskData)
+    axios.post('https://task-list-api-lnqs.onrender.com/tasks', newTaskData)
     .then(response => {
       const allTasks = [...tasks]
       allTasks.push({
