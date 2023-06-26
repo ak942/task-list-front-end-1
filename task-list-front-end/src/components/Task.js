@@ -1,19 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
 import './Task.css';
 
-const Task = ({ id, title, isComplete, toggleTask, removeTask}) => {
-  // const [complete, setComplete] = useState(isComplete);
+const Task = ({ id, title, isComplete, description, toggleTask, removeTask}) => {
+    const [hover, setHover] = React.useState(false)
     const buttonClass = isComplete ? 'tasks__item__toggle--completed' : '';
+    const text = ()=> {
+        return hover ? <section>{description} </section> : <section>{title}</section>
+    }
 
     return (
-    <li className="tasks__item">
+    <li onMouseOver={()=>setHover(true)} onMouseOut ={()=>setHover(false)} className="tasks__item">
         <button
         className={`tasks__item__toggle ${buttonClass}`}
         onClick={() => toggleTask(id, isComplete)}
         >
-        {title}
+        {text()}
         </button>
         <button className="tasks__item__remove button" onClick={()=>removeTask(id)}>X</button>
     </li>
