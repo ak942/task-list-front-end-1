@@ -1,5 +1,5 @@
 .add_new_task {
-    display: flex;
+    /* display: flex; */
     justify-content: left;
     width: 30vh;
     height: 50vh;
@@ -7,7 +7,13 @@
 }
 
 .new_task_fields, label {
-    padding: 2vh;
-    gap: 5vh;
+    /* padding: 2vh; */
+    gap: 1vh;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.new_task_submit_btn {
+    margin-top: 1.3vh ;
 }

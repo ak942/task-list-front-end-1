@@ -30,14 +30,14 @@ const TaskForm = (props) => {
                             value={formFields.title}
                             onChange={handleChange}
                         />
-                        <label htmlFor='desctipion'>Description</label>
+                        <label htmlFor='description'>Description</label>
                         <input
                             name="description"
                             value={formFields.description}
                             onChange={handleChange}
                         />
                     </div>
-                    <input type="submit" value="Submit"/>
+                    <input className= "new_task_submit_btn"type="submit" value="Submit"/>
                 </div>
             </section>
         </form>
