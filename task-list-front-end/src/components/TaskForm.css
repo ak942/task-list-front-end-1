@@ -1,15 +1,13 @@
 .add_new_task {
-    /* display: flex; */
-    justify-content: left;
-    width: 30vh;
-    height: 50vh;
-    margin-left: 10vh;
+    /* width: 20vh;
+    height: 50vh;  */
+    /* margin-top: 5vh; */
 }
 
 .new_task_fields, label {
     /* padding: 2vh; */
     gap: 1vh;
-    margin: auto;
+    /* margin: auto; */
     display: flex;
     flex-direction: column;
 }

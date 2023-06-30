@@ -31,24 +31,32 @@
 .main-app {
   display: flex;
   align-items: center;
-  margin-top: 5vh;
+  margin-top: 5%;
+  margin: 5%;
+  justify-content: center;
+  flex-direction: row;
 }
 
-/* .task-list-container {
-  width: 100%;
-} */
-
-.to-do {
-  display: flex;
+.to-do, .task-list-container{
+  display: flex; 
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 0;
-  margin-left: 15vh;
-  margin-right: auto;
+  align-items: center; 
+  margin: auto;
+  margin-left: 0vh;
+  width: 50vh;
+  height: auto;
 }
 
 .to-do-title {
   margin: 0;
   font-size: 2em;
+  text-align: center;
+}
+
+.task-form {
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  margin-left: 5%;
+  margin-right: 15%;
 }

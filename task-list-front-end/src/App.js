@@ -63,12 +63,14 @@ const App = () => {
         <h1>Task List</h1>
       </header>
       <main className="main-app">
+        <div className="task-form">
           <TaskForm addTaskCallBack = {addTask}></TaskForm>
+        </div>
         <div className="to-do"> 
           <h3 className="to-do-title">To Do's</h3>
-          <div className="task-list-container">
-            <TaskList tasks={tasks} toggleTask = {toggleTask} removeTask = {removeTask}/>
-          </div>
+        <div className="task-list-container">
+          <TaskList tasks={tasks} toggleTask = {toggleTask} removeTask = {removeTask}/>
+        </div>
         </div>
       </main>
     </div>

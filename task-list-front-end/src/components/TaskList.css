@@ -1,12 +1,12 @@
 main ul.tasks__list {
-    width: 60vh;
+    width: 50vh;
     /* margin: auto; */
     padding: 0;
 }
 
 .task-list {
-    display: flex;
-    align-items: center;
+    display: flex; 
+    align-items: center; 
     margin: auto;
     justify-content: center;
 }
