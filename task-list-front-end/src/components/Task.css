@@ -35,14 +35,20 @@ border: 1px solid rgba(0, 0, 0, 0.1);
 button.tasks__item__remove {
 top: 50%;
 right: 0;
-height: 100%;
+height: auto;
 /* transform: translateY(-50%); */
 /* padding: 0.85em 2.25em 0.85em 1em; */
 font-size: 100%;
 margin: 0;
+border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .description_text {
 font-style: italic;
 color: #808080;
+text-transform: lowercase;
+}
+
+.task-text {
+    text-transform: capitalize;
 }

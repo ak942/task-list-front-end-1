@@ -7,7 +7,7 @@ const Task = ({ id, title, isComplete, description, toggleTask, removeTask}) => 
     const [hover, setHover] = React.useState(false)
     const buttonClass = isComplete ? 'tasks__item__toggle--completed' : '';
     const text = ()=> {
-        return hover ? <section className="description_text">{description}</section> : <section>{title}</section>
+        return hover ? <section className="description_text">{description}</section> : <section className="task-text">{title}</section>
     }
 
     return (
