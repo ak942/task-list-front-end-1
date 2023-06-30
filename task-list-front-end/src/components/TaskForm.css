@@ -1,17 +1,27 @@
-.add_new_task {
-    /* width: 20vh;
-    height: 50vh;  */
-    /* margin-top: 5vh; */
-}
-
-.new_task_fields, label {
+.new_task_fields, label, .new_task_fields_input {
     /* padding: 2vh; */
-    gap: 1vh;
-    /* margin: auto; */
+    gap: 1.4vh;
+    margin: auto;
     display: flex;
     flex-direction: column;
+    align-content: center;
+    justify-content: center;
 }
 
 .new_task_submit_btn {
     margin-top: 1.3vh ;
+    width: 10vh;
+    margin: auto;
+	border: 5px solid #eee;
+	border-radius: 20px;
+	box-shadow: 1.4px 1.4px 1.4px darkgrey;
+	text-shadow: none;
 }
+
+.new_task_fields input{
+    /* width: 16vh; */
+    border: darkgrey 2px solid;
+    border-radius: 5px;
+
+}
+
